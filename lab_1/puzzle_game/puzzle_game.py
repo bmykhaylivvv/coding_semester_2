@@ -18,6 +18,9 @@ def remove_stars(char):
     else:
         return False
 
+def numeric_chech():
+    pass
+
 
 def horizontal_lines(board):
     """
@@ -56,13 +59,27 @@ def repeat_check(lst):
 
 
 
+def one_color(board):
+    same_color = []
 
-colors = []
+    vertical = []
+    for i in range(5):
+        vertical.append(vertical_lines(board)[i][(4 - i):(9 - i)])
 
-for i in range(4):
-    print(vertical_lines(test_board)[i])
+    horizontal = []
+    for j in range(5):
+        horizontal.append(horizontal_lines(test_board)[8 - j][(1 + j):(5 + j)])
 
+    for k in range(len(vertical)):
+        same_color.append(vertical[k] + horizontal[k])
 
+    return same_color
+
+print(one_color(test_board))
+
+print(repeat_check(one_color(test_board)))
+
+    
 
 
 
