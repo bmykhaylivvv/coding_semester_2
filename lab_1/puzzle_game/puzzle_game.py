@@ -1,16 +1,22 @@
-test_board = [
-    "**** ****",
-    "***1 ****",
-    "**  3****",
-    "* 4 1****",
-    "     9 5 ",
-    " 6  83  *",
-    "3   5  **",
-    "  1  2***",
-    "  7  ****"
+"""
+My version of "Puzzle game" on GitHub:
+https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/puzzle_game
+"""
+
+# board for test
+board = [
+ "**** ****",
+ "***1 ****",
+ "**  3****",
+ "* 4 1****",
+ "     9 5 ",
+ " 6  82  *",
+ "3   2  **",
+ "  8  1***",
+ "  2  ****"
 ]
 
-# Зробити перевірку, що це саме все числа, це можна зробити, коли рядок і стовпчик склеяли в один
+# Написати документацію та коментарі
 
 
 def remove_stars(char):
@@ -22,7 +28,7 @@ def remove_stars(char):
 
 def numeric_check(colors):
     """
-    Doc
+    Function checks if each element in list is str(number) or blank character
     """
     numbers_plus_blank = ['1', '2', '3', '4', '5', '6', '7', '8', '9', ' ']
     for color in colors:
@@ -34,7 +40,7 @@ def numeric_check(colors):
 
 def horizontal_lines(board):
     """
-    Doc
+    Function reads horizontal lines on the board
     """
     horizontals = []
     for line in board:
@@ -45,7 +51,7 @@ def horizontal_lines(board):
 
 def vertical_lines(board):
     """
-    Doc
+    Function reads vertical lines on the board
     """
     verticals = []
     column = []
@@ -57,9 +63,30 @@ def vertical_lines(board):
     return verticals
 
 
+
+def one_color(board):
+    """
+    Function reads sections with the same color on the boards
+    """
+    same_color = []
+    vertical = []
+    for i in range(5):
+        vertical.append(vertical_lines(board)[i][(4 - i):(9 - i)])
+
+    horizontal = []
+    for j in range(5):
+        horizontal.append(horizontal_lines(board)[8 - j][(1 + j):(5 + j)])
+
+    for k in range(len(vertical)):
+        same_color.append(vertical[k] + horizontal[k])
+
+    return same_color
+
+
 def repeat_check(lst):
     """
-    Doc
+    Fuction checks if there are repeatable characters in rows, columns or 
+    sections with the same color
     """
     new_lines = []
     for line in lst:
@@ -72,28 +99,13 @@ def repeat_check(lst):
     return True
 
 
-def one_color(board):
-    """
-    Doc
-    """
-    same_color = []
-    vertical = []
-    for i in range(5):
-        vertical.append(vertical_lines(board)[i][(4 - i):(9 - i)])
 
-    horizontal = []
-    for j in range(5):
-        horizontal.append(horizontal_lines(test_board)[8 - j][(1 + j):(5 + j)])
-
-    for k in range(len(vertical)):
-        same_color.append(vertical[k] + horizontal[k])
-
-    return same_color
 
 
 def validate_board(board):
     """
-    Doc
+    MAIN FUNCTION
+    Function checks if board is valid for game
     """
     if repeat_check(horizontal_lines(board)) and repeat_check(vertical_lines(board))\
             and repeat_check(one_color(board)) and numeric_check(one_color(board)):
@@ -101,4 +113,5 @@ def validate_board(board):
     return False
 
 
-print(validate_board(test_board))
+if __name__ == "__main__":
+    print(validate_board(board))
