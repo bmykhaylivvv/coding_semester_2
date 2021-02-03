@@ -1,16 +1,17 @@
 test_board = [
- "**** ****",
- "***1 ****",
- "**  3****",
- "* 4 1****",
- "     9 5 ",
- " 6  83  *",
- "3   1  **",
- "  8  2***",
- "  2  ****"
+    "**** ****",
+    "***1 ****",
+    "**  3****",
+    "* 4 1****",
+    "     9 5 ",
+    " 6  83  *",
+    "3   5  **",
+    "  1  2***",
+    "  7  ****"
 ]
 
 # Зробити перевірку, що це саме все числа, це можна зробити, коли рядок і стовпчик склеяли в один
+
 
 def remove_stars(char):
     if char != '*' and char != ' ':
@@ -18,8 +19,14 @@ def remove_stars(char):
     else:
         return False
 
-def numeric_chech():
-    pass
+
+def numeric_check(colors):
+    numbers_plus_blank = ['1', '2', '3', '4', '5', '6', '7', '8', '9', ' ']
+    for color in colors:
+        for char in color:
+            if char not in numbers_plus_blank:
+                return False
+    return True
 
 
 def horizontal_lines(board):
@@ -46,6 +53,7 @@ def vertical_lines(board):
         column = []
     return verticals
 
+
 def repeat_check(lst):
     new_lines = []
     for line in lst:
@@ -56,7 +64,6 @@ def repeat_check(lst):
         if len(ln) != len(set(ln)):
             return False
     return True
-
 
 
 def one_color(board):
@@ -75,15 +82,10 @@ def one_color(board):
 
     return same_color
 
-print(one_color(test_board))
 
-print(repeat_check(one_color(test_board)))
-
-    
-
-
-
-
-
-
-
+def validate_board(board):
+    if repeat_check(horizontal_lines(board)) and repeat_check(vertical_lines(board))\
+        and repeat_check(one_color(board)) and numeric_check(one_color(board)):
+        return True
+    return False
+print(validate_board(test_board))
