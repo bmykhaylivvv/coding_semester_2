@@ -21,6 +21,9 @@ def remove_stars(char):
 
 
 def numeric_check(colors):
+    """
+    Doc
+    """
     numbers_plus_blank = ['1', '2', '3', '4', '5', '6', '7', '8', '9', ' ']
     for color in colors:
         for char in color:
@@ -55,6 +58,9 @@ def vertical_lines(board):
 
 
 def repeat_check(lst):
+    """
+    Doc
+    """
     new_lines = []
     for line in lst:
         new_line = list(filter(remove_stars, line))
@@ -67,8 +73,10 @@ def repeat_check(lst):
 
 
 def one_color(board):
+    """
+    Doc
+    """
     same_color = []
-
     vertical = []
     for i in range(5):
         vertical.append(vertical_lines(board)[i][(4 - i):(9 - i)])
@@ -84,8 +92,13 @@ def one_color(board):
 
 
 def validate_board(board):
+    """
+    Doc
+    """
     if repeat_check(horizontal_lines(board)) and repeat_check(vertical_lines(board))\
-        and repeat_check(one_color(board)) and numeric_check(one_color(board)):
+            and repeat_check(one_color(board)) and numeric_check(one_color(board)):
         return True
     return False
+
+
 print(validate_board(test_board))
