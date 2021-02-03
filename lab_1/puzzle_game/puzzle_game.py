@@ -5,18 +5,16 @@ https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/puzzle_game
 
 # board for test
 board = [
- "**** ****",
- "***1 ****",
- "**  3****",
- "* 4 1****",
- "     9 5 ",
- " 6  82  *",
- "3   2  **",
- "  8  1***",
- "  2  ****"
+    "**** ****",
+    "***1 ****",
+    "**  3****",
+    "* 4 1****",
+    "     9 5 ",
+    " 6  82  *",
+    "3   2  **",
+    "  8  1***",
+    "  2  ****"
 ]
-
-# Написати документацію та коментарі
 
 
 def remove_stars(char):
@@ -63,7 +61,6 @@ def vertical_lines(board):
     return verticals
 
 
-
 def one_color(board):
     """
     Function reads sections with the same color on the boards
@@ -97,9 +94,6 @@ def repeat_check(lst):
         if len(ln) != len(set(ln)):
             return False
     return True
-
-
-
 
 
 def validate_board(board):
