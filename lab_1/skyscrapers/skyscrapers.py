@@ -1,6 +1,7 @@
 """
 My version of "Skyscrapers game" winning combination check on GitHub:
-https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/skyscrapers"""
+https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/skyscrapers
+"""
 
 import collections
 
@@ -41,7 +42,6 @@ def left_to_right_check(input_line: str, pivot: int):
         if input_line[i] > highest:
             counter += 1
             highest = input_line[i]
-
 
     if counter == pivot:
         return True
@@ -168,8 +168,8 @@ def check_skyscrapers(input_path: str):
     board = read_input(input_path)
 
     if check_not_finished_board(board) and check_uniqueness_in_rows(board)\
-         and check_horizontal_visibility(board) and check_columns(board):
-         return True
+            and check_horizontal_visibility(board) and check_columns(board):
+        return True
     return False
 
 
