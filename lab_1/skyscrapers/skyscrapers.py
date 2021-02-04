@@ -1,7 +1,6 @@
 """
 My version of "Skyscrapers game" winning combination check on GitHub:
-https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/skyscapers
-"""
+https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/skyscrapers"""
 
 import collections
 
