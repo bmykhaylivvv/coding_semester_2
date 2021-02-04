@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name = "skyscrapers_project_bmykhaylivvv",
+    name="skyscrapers_project_bmykhaylivvv",
     version="0.0.1",
     author="Bohdan Mykhayliv",
     author_email="bohdan.mykhailiv@ucu.edu.ua",
