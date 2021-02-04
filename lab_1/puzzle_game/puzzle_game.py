@@ -1,5 +1,5 @@
 """
-My version of "Puzzle game" on GitHub:
+My version of "Puzzle game" board validation on GitHub:
 https://github.com/bmykhaylivvv/coding_semester_2/tree/main/lab_1/puzzle_game
 """
 
